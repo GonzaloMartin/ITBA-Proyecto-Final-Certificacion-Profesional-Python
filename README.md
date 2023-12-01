@@ -2,7 +2,6 @@
 
 ## Integrantes
  - Gonzalo Montalvo | [@GonzaloMartin](https://github.com/GonzaloMartin).
- - Francisco Tabar  | [@FranciscoTabar](https://github.com/FranciscoTabar).
 
 ## Resumen
 
