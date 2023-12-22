@@ -47,12 +47,12 @@ Se usa pytest para realizar pruebas unitarias. Las pruebas están marcadas con e
 #### Clonar el Proyecto
 
 - Debes tener GIT instalado en el equipo con lo necesario para poder clonar el proyecto.
-- 
+
 - Clonar el repositorio: `git clone https://github.com/GonzaloMartin/ITBA-Proyecto-Final-Certificacion-Profesional-Python.git`
 
 #### Requisitos Previos
 
-- Python 3.x instalado
+- Python 3.x instalado.
 - Bibliotecas requeridas: `pip install -r requirements.txt`
 
 
