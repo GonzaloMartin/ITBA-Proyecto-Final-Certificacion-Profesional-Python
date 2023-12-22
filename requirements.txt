@@ -4,3 +4,4 @@ urllib3~=2.1.0
 matplotlib~=3.8.2
 mplfinance==0.12.10b0
 pandas~=2.1.4
+cryptography~=41.0.7
