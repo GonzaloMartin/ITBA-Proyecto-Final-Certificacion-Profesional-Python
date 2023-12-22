@@ -94,6 +94,36 @@ def graficar_ticker(ticker):
 
     con.close()
 
+def get_parametros_tecnicos(ticker):
+    con = crear_base()  # Creo la conexión a la base de datos
+    ticket_existe = consultar_stock_market(con, ticker=ticker)
+
+    if not ticket_existe:
+        print(f"        El ticker '{ticker}' no existe en la base de datos.")
+        return
+
+    query = f"""
+            SELECT fecha, precio_inicio, precio_cierre, precio_min, precio_max, precio_media, volumen, num_trx 
+            FROM '{ticker}' ORDER BY fecha
+            """
+    datos = consultar_sql(con, query=query)
+    if len(datos) == 0:
+        print("        El ticker no existe en la base de datos.")
+        return
+
+    print(f"\n        Resumen de Datos Técnicos para: '{ticker}'")
+    print("\n        {:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<15}".format("FECHA", "PRECIO INICIO",
+                                                                                     "PRECIO CIERRE", "PRECIO MIN",
+                                                                                     "PRECIO MAX", "MEDIA", "VOLUMEN",
+                                                                                     "TRANSACCIONES"))
+    print(" " * 8 + "-" * 127)
+
+    for d in datos:
+        print("        {:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<15}".format(d[0], d[1], d[2], d[3],
+                                                                                       d[4], d[5], d[6], d[7]))
+
+    con.close()
+
 def iniciar_sistema():
     while True:
         print("\nITBA - Certificacion Profesional en Python - PROYECTO FINAL")
@@ -114,7 +144,8 @@ def iniciar_sistema():
         elif opcion == '2':
             print("\n        Menú de Visualización:")
             print("        1. Resumen")
-            print("        2. Gráfico de ticker")
+            print("        2. Gráfico de Ticker")
+            print("        3. Parámetros Técnicos")
             subopcion = input("        Seleccione una opción del submenú: ")
 
             if subopcion == '1':
@@ -122,6 +153,9 @@ def iniciar_sistema():
             elif subopcion == '2':
                 ticker = input("        Ingrese el ticker a Graficar: ").upper()
                 graficar_ticker(ticker)
+            elif subopcion == '3':
+                ticker = input("        Ingrese el Ticker para ver sus detalles: ").upper()
+                get_parametros_tecnicos(ticker)
             else:
                 print("        Opción inválida.")
         elif opcion == '3':
