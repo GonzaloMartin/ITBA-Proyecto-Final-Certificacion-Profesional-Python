@@ -2,6 +2,7 @@ import requests
 import sqlite3
 from conftest import *
 from datetime import datetime
+from cryptography.fernet import Fernet
 
 def crear_base():
     # Crear la base de datos si no existe
@@ -103,7 +104,7 @@ def insertar_datos_ticker(con, ticker, fecha, precio_inicio, precio_cierre, prec
         else:
             print(f"Error: {e}")
 
-def consultarSQL(con, query):
+def consultar_sql(con, query):
     # Consultar datos en la base de datos
 
     rows = None
@@ -112,7 +113,10 @@ def consultarSQL(con, query):
         cursorObj.execute(query)
         rows = cursorObj.fetchall()
     except sqlite3.IntegrityError as e:
-        print("El ticker no existe en la base de datos.")
+        if "no such table" in str(e):
+            print("El ticker no existe en la base de datos.")
+        else:
+            print("Error:", e)
     return rows
 
 def get_anio():
@@ -127,6 +131,15 @@ def get_fecha():
     now = datetime.now()
     return now.strftime("%Y-%m-%d")
 
+def get_clv_descompuesta_a():
+    return "Bearer "
+
+def get_clv_descompuesta_p():
+    return "QePQ4Fm3Q9pbHW0kgd"
+
+def get_clv_descompuesta_k():
+    return "9E9ra5033_P4_N"
+
 def convertir_fecha_api(timestamp_milisegs):
     # Función para convertir timestamp de milisegundos a formato YYYY-MM-DD
 
@@ -134,13 +147,18 @@ def convertir_fecha_api(timestamp_milisegs):
     fecha = datetime.fromtimestamp(timestamp_segs)
     return fecha.strftime("%Y-%m-%d")
 
+def get_au():
+    cc = generar_clv()
+    return descifrar_api_k(apk_cifrada=cc[0], clave_cifrado=cc[1])
+
 def get_verificar_servicio():
     # Función para verificar el servicio de la API
 
     url = "https://api.polygon.io/v1/marketstatus/now"
+    au = get_au()
 
     headers = {
-        'Authorization': 'Bearer QePQ4Fm3Q9pbHW0kgd9E9ra5033_P4_N'
+        'Authorization': au
     }
 
     ignorarWarnings()
@@ -154,12 +172,32 @@ def get_datos_polygon(ticker, fecha_inicio, fecha_fin):
     url_base = "https://api.polygon.io/v2/aggs/ticker/"
     url_endp = "/range/1/day/"
     url = url_base + ticker + url_endp + fecha_inicio + "/" + fecha_fin
+    au = get_au()
 
     headers = {
-        'Authorization': 'Bearer QePQ4Fm3Q9pbHW0kgd9E9ra5033_P4_N'
+        'Authorization': au
     }
 
     ignorarWarnings()
     response = requests.get(url, headers=headers, verify=False)
     response_json = response.json()
     return response, response_json
+
+def generar_clv_cifrado():
+    return Fernet.generate_key()
+
+def cifrar_api_k(api_k, clave_cifrado):
+    cipher_suite = Fernet(clave_cifrado)
+    api_k_cifrada = cipher_suite.encrypt(api_k.encode())
+    return api_k_cifrada
+
+def generar_clv():
+    clave_cifrado = generar_clv_cifrado()
+    apk = get_clv_descompuesta_a() + get_clv_descompuesta_p() + get_clv_descompuesta_k()
+    apk_cifrada = cifrar_api_k(apk, clave_cifrado)
+    return apk_cifrada, clave_cifrado
+
+def descifrar_api_k(apk_cifrada, clave_cifrado):
+    cipher_suite = Fernet(clave_cifrado)
+    api_de_k = cipher_suite.decrypt(apk_cifrada).decode()
+    return api_de_k
