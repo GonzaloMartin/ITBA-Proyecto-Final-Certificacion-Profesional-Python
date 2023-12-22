@@ -10,7 +10,7 @@ Los datos persistirán en una base de datos portable usando SQLite.
 
 #### Estructura de Carpetas:
 
-El proyecto se organiza en tres carpetas principales:
+El proyecto se organiza en cuatro carpetas principales:
 
 1** `docs`**: Contiene el manual de usuario `documentacion.md`. Incluye la documentación de cómo usar el sistema.
 
@@ -19,6 +19,9 @@ El proyecto se organiza en tres carpetas principales:
 3**`src`**: Contiene el script principal `proyecto.py`, responsable de la interfaz de usuario y la interacción con las funciones del módulo `lib`. Aquí se implementan funciones para actualizar datos, mostrar resúmenes, graficar tickers y obtener parámetros técnicos.
 
 4**`test`**: Contiene el script `run_test.py` con pruebas unitarias escritas usando pytest. Estas pruebas aseguran el correcto funcionamiento de funciones clave, como la verificación del servicio de Polygon.io y la inicialización del sistema de finanzas.
+
+Elegí esta estructura de archivos porque me pareció más legible y se acomoda bien a la forma que tengo de encarar un proyecto de APIs.
+
 
 ### Uso y Funcionamiento
 
@@ -38,9 +41,11 @@ En la opción `2`, se accede a un submenú que permite:
 
 La opción `3` finaliza la ejecución del programa.
 
+
 ### Uso de Pytest
 
 Se usa pytest para realizar pruebas unitarias. Las pruebas están marcadas con etiquetas, como `verificar_servicio` e `iniciar_sistema`, y se enfocan en verificar la conexión con la API de Polygon.io y el correcto inicio del sistema de finanzas.
+
 
 ### Manual de Usuario
 
@@ -53,6 +58,7 @@ Se usa pytest para realizar pruebas unitarias. Las pruebas están marcadas con e
 #### Requisitos Previos
 
 - Python 3.x instalado.
+- 
 - Bibliotecas requeridas: `pip install -r requirements.txt`
 
 
@@ -81,6 +87,7 @@ Se usa pytest para realizar pruebas unitarias. Las pruebas están marcadas con e
 1. Seleccione la opción `3`.
 2. El programa finalizará su ejecución.
 
+
 ### Conclusión
 
 El proyecto ofrece una interfaz sencilla de consola para actualizar y visualizar datos financieros, proporcionando una herramienta útil para quienes se avoquen a las finanzas y análisis o seguimiento del mercado de capitales.
@@ -88,6 +95,7 @@ El proyecto ofrece una interfaz sencilla de consola para actualizar y visualizar
 La APi elegida fue Polygon.io. La misma solo es consultable a excepción del día actual, dado que para ver el día actual se necesita una actualizacíon en su licencia (pricing).
 
 La estructura modular y las pruebas unitarias aseguran la confiabilidad y mantenibilidad del sistema.
+
 
 ### Autor y Desarrollador
 
