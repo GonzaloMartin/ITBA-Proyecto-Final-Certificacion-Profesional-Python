@@ -58,7 +58,7 @@ Se usa pytest para realizar pruebas unitarias. Las pruebas están marcadas con e
 #### Requisitos Previos
 
 - Python 3.x instalado.
-- 
+
 - Bibliotecas requeridas: `pip install -r requirements.txt`
 
 
