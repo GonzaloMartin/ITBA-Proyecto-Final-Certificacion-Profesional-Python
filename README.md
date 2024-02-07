@@ -3,6 +3,11 @@
 ## Integrantes
  - Gonzalo Montalvo | [@GonzaloMartin](https://github.com/GonzaloMartin).
 
+## Documentación
+    
+Por favor leer la documentación del sistema en el siguiente link:
+ - [Documentación](docs/documentacion.md)
+
 ## Resumen
 
 Se pide implementar un programa que permita leer datos de una API de finanzas, guardarlos en una base de datos y graficarlos.

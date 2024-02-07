@@ -137,8 +137,8 @@ def iniciar_sistema():
 
         if opcion == '1':
             ticker = input("    Ingrese ticker a consultar: ").upper()
-            fecha_inicio = input("    Ingrese fecha de inicio (YYYY/MM/DD): ")
-            fecha_fin = input("    Ingrese fecha de fin (YYYY/MM/DD): ")
+            fecha_inicio = input("    Ingrese fecha de inicio (YYYY-MM-DD): ")
+            fecha_fin = input("    Ingrese fecha de fin (YYYY-MM-DD): ")
             print("    > Pidiendo datos ...")
             actualizar_datos(ticker, fecha_inicio, fecha_fin)
         elif opcion == '2':

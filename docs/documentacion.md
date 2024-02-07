@@ -72,14 +72,21 @@ Se usa pytest para realizar pruebas unitarias. Las pruebas están marcadas con e
 #### Actualización de Datos
 
 1. Seleccione la opción `1`.
-2. Ingrese el ticker, la fecha de inicio y la fecha de fin cuando se le solicite.
+2. Ingrese el ticker, la fecha de inicio `(YYYY-MM-DD)` y la fecha de fin `(YYYY-MM-DD)` cuando se le solicite.
 3. Espere a que el sistema obtenga y almacene los datos.
+4. Los datos se almacenarán en la base de datos SQLite y se mostrará un mensaje de confirmación.
 
 
 #### Visualización de Datos
 
 1. Seleccione la opción `2` y luego elija una subopción (1, 2 o 3) según la visualización deseada.
 2. Siga las instrucciones en pantalla para completar la operación.
+
+**Resumen:** Muestra un resumen de todos los tickers almacenados en la base de datos.
+
+**Gráfico de Ticker:** Permite visualizar gráficos de velas para un ticker específico.
+
+**Parámetros Técnicos:** Muestra parámetros técnicos para un ticker, como precios, volume y número de transacciones, entre otros datos.
 
 
 #### Salir del Sistema
@@ -92,7 +99,7 @@ Se usa pytest para realizar pruebas unitarias. Las pruebas están marcadas con e
 
 El proyecto ofrece una interfaz sencilla de consola para actualizar y visualizar datos financieros, proporcionando una herramienta útil para quienes se avoquen a las finanzas y análisis o seguimiento del mercado de capitales.
 
-La APi elegida fue Polygon.io. La misma solo es consultable a excepción del día actual, dado que para ver el día actual se necesita una actualizacíon en su licencia (pricing).
+La API elegida fue Polygon.io. La misma solo es consultable a excepción del día actual, dado que para ver el día actual se necesita una actualizacíon en su licencia (pricing).
 
 La estructura modular y las pruebas unitarias aseguran la confiabilidad y mantenibilidad del sistema.
 
