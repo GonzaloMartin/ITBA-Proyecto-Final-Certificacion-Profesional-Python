@@ -11,7 +11,7 @@ def crear_base():
     :return: con (objeto conexión)
     """
 
-    con = sqlite3.connect('finanzas.db')
+    con = sqlite3.connect('db/finanzas.db')
     return con
 
 def crear_stock_market(con):
