@@ -1,10 +1,19 @@
 import pandas as pd
 import mplfinance as mpf
-import matplotlib.pyplot as plt
 from lib.funciones import *
 
 
 def actualizar_datos(ticker_rq, fecha_ini_rq, fecha_fin_rq):
+    """
+    Actualiza los datos de un ticker en la base de datos.
+    Los datos se obtienen de la API de Polygon.io.
+
+    :param ticker_rq: Ticker consultado.
+    :param fecha_ini_rq: Fecha de inicio de la consulta.
+    :param fecha_fin_rq: Fecha de fin de la consulta.
+    :return: None
+    """
+
     con = crear_base()  # Creo la conexión a la base de datos
     crear_stock_market(con)  # Crea la tabla de stock market si no existe
 
@@ -53,6 +62,13 @@ def actualizar_datos(ticker_rq, fecha_ini_rq, fecha_fin_rq):
     con.close()
 
 def mostrar_resumen():
+    """
+    Muestra un resumen de los tickers en la base de datos.
+    La información mostrada es: ticker, fecha de inicio y fecha de fin.
+
+    :return: None
+    """
+
     con = crear_base()  # Creo la conexión a la base de datos
     print("\n        Resumen de datos:")
     print("\n        {:<10} {:<15} {:<15}".format("TICKER", "FECHA INICIO", "FECHA FIN"))
@@ -65,6 +81,16 @@ def mostrar_resumen():
     con.close()
 
 def graficar_ticker(ticker):
+    """
+    Grafica el gráfico de velas para un ticker. El gráfico se muestra en una ventana emergente.
+    El ticket que se graficará debe existir en la base de datos, tabla stock_market.
+    No se graficará si el ticker no existe. Debe ser un ticker que haya sido consultado previamente.
+    El gráfico se hace con la biblioteca mplfinance, que permite visualizar gráficos de velas.
+    Esta biblioteca es una extensión de matplotlib.
+
+    :param ticker: Ticker a graficar.
+    :return: None
+    """
     con = crear_base()  # Creo la conexión a la base de datos
     ticket_existe = consultar_stock_market(con, ticker=ticker)
 
@@ -95,6 +121,17 @@ def graficar_ticker(ticker):
     con.close()
 
 def get_parametros_tecnicos(ticker):
+    """
+    Muestra los parámetros técnicos de un ticker.
+    Los parámetros técnicos son: fecha, precio de inicio, precio de cierre, precio mínimo, precio máximo,
+    precio medio, volumen y número de transacciones. Se muestran en consola.
+    El ticker debe existir en la base de datos, tabla stock_market.
+    No se mostrará si el ticker no existe. Debe ser un ticker que haya sido consultado previamente.
+
+    :param ticker: Ticker a consultar.
+    :return: None
+    """
+
     con = crear_base()  # Creo la conexión a la base de datos
     ticket_existe = consultar_stock_market(con, ticker=ticker)
 
@@ -125,15 +162,23 @@ def get_parametros_tecnicos(ticker):
     con.close()
 
 def iniciar_sistema():
+    """
+    Inicia el sistema de visualización de datos.
+    Muestra un menú con las opciones disponibles. El usuario puede seleccionar una opción.
+    Las opciones son: Actualización de datos, Visualización de datos y Salir.
+
+    :return: None
+    """
+
     while True:
         print("\nITBA - Certificacion Profesional en Python - PROYECTO FINAL")
-        print("Alumno: Gonzalo Montalvo.")
+        print(f"Autor: Gonzalo Martin Montalvo. (C) 2023 - {get_anio()}.")
         print("\nMenú Principal:")
         print("Polygon.io no permite visualizaciones del dia.")
         print("    1. Actualización de datos")
         print("    2. Visualización de datos")
         print("    3. Salir")
-        opcion = input("    Seleccione una opción: ")
+        opcion = input("\n    Seleccione una opción: ")
 
         if opcion == '1':
             ticker = input("    Ingrese ticker a consultar: ").upper()
