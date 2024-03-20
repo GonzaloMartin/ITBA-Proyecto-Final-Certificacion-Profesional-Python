@@ -156,7 +156,7 @@ En la opción `2`, se accede a un submenú que permite:
 
 - **`Gráfico de Ticker` (Subopción 2):** Permite visualizar gráficos de velas para un ticker específico.
 
-![Grafico de Ticker](assets/08_grafico.PNG)
+![Grafico de Ticker](assets/08_grafico.png)
 
 
 - **`Parámetros Técnicos` (Subopción 3):** Muestra parámetros técnicos para un ticker, como precios, volumen y número de transacciones, entre otros datos.
@@ -166,7 +166,7 @@ En la opción `2`, se accede a un submenú que permite:
 
 La opción `3` finaliza la ejecución del programa.
 
-![Salir del Sistema](assets/10_salir.PNG)
+![Salir del Sistema](assets/10_salir.png)
 
 ### Manual de Usuario
 
