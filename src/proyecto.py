@@ -1,6 +1,5 @@
 import pandas as pd
 import mplfinance as mpf
-import matplotlib.pyplot as plt
 from lib.funciones import *
 
 
