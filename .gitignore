@@ -5,6 +5,7 @@
 # Pycharm
 __pycache__/
 .pytest_cache/
+*.pyc
 
 # Customs
 .idea/
