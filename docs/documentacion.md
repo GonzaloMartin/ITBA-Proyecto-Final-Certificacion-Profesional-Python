@@ -12,13 +12,39 @@ Los datos persistirán en una base de datos portable usando SQLite.
 
 El proyecto se organiza en cuatro carpetas principales:
 
-1** `docs`**: Contiene el manual de usuario `documentacion.md`. Incluye la documentación de cómo usar el sistema.
+```
+Root                     Raíz del sistema.
+├───db                   Base de datos SQLite.
+├───docs                 Documentación del sistema.
+│   └───assets           Imágenes y recursos.
+├───lib                  Módulo de funciones.
+├───src                  Script principal.
+├───test                 Pruebas unitarias.
+```
 
-2**`lib`**: Contiene el módulo `funciones.py` que incluye las funciones relacionadas con la manipulación de la base de datos SQLite, la interacción con la API de Polygon.io y la gestión de claves de seguridad.
+ 1. **`db`**: Contiene la base de datos `finanzas.db` que almacena los datos financieros de los tickers. La base de datos se inicializa con una tabla `STOCK_MARKET` que almacena los datos de los tickers, incluyendo su símbolo, nombre, fecha de inicio y fin, precios, volumen y otros parámetros técnicos.
 
-3**`src`**: Contiene el script principal `proyecto.py`, responsable de la interfaz de usuario y la interacción con las funciones del módulo `lib`. Aquí se implementan funciones para actualizar datos, mostrar resúmenes, graficar tickers y obtener parámetros técnicos.
 
-4**`test`**: Contiene el script `run_test.py` con pruebas unitarias escritas usando pytest. Estas pruebas aseguran el correcto funcionamiento de funciones clave, como la verificación del servicio de Polygon.io y la inicialización del sistema de finanzas.
+ 2. **`docs`**: Contiene el manual de usuario `documentacion.md`. Incluye la documentación de cómo usar el sistema.
+    - **`assets`**: Contiene imágenes y recursos para la documentación.
+
+
+ 3. **`lib`**: Contiene el módulo `funciones.py` que incluye las funciones relacionadas con la manipulación de la base de datos SQLite, la interacción con la API de Polygon.io y la gestión de claves de seguridad.
+
+
+ 4. **`src`**: Contiene el script principal `proyecto.py`, responsable de la interfaz de usuario y la interacción con las funciones del módulo `lib`. Aquí se implementan funciones para actualizar datos, mostrar resúmenes, graficar tickers y obtener parámetros técnicos.
+
+
+ 5. **`test`**: Contiene el script `run_test.py` con pruebas unitarias escritas usando pytest. Estas pruebas aseguran el correcto funcionamiento de funciones clave, como la verificación del servicio de Polygon.io y la inicialización del sistema de finanzas.
+
+
+ - **`Root`**: Contiene los archivos:
+   - `.gitignore`: Archivo de configuración de Git, excluyendo archivos y carpetas específicos.
+   - `conftest.py`: Archivo de configuración de pytest.
+   - `License`: Licencia del proyecto.
+   - `pytest.ini`: Archivo de configuración de pytest.
+   - `README.md`: Archivo de presentación del proyecto.
+   - `requirements.txt`: Lista de bibliotecas requeridas para el proyecto.
 
 Elegí esta estructura de archivos porque me pareció más legible y se acomoda bien a la forma que tengo de encarar un proyecto de APIs.
 
