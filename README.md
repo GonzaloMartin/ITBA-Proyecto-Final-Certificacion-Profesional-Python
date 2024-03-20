@@ -3,6 +3,19 @@
 ## Autor
  - Gonzalo Montalvo | [@GonzaloMartin](https://github.com/GonzaloMartin).
 
+## Contenido
+
+ 1. [Documentación](#documentación)
+ 2. [Resumen](#resumen)
+ 3. [Detalles de Implementación](#detalles-de-implementación)
+    - [Menú principal](#menú-principal)
+    - [Actualización de datos](#actualización-de-datos)
+    - [Visualización de datos](#visualización-de-datos)
+    - [Resumen](#resumen)
+    - [Gráfico](#gráfico)
+ 4. [Extras](#extras)
+ 5. [Links útiles](#links-útiles)
+
 ## Documentación
     
 La documentación funcional y técnica del sistema se encuentra en el siguiente link:
