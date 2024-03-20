@@ -150,11 +150,13 @@ En la opción `2`, se accede a un submenú que permite:
 ![Menú Visualización de Datos](assets/06_visualizacion_de_datos.PNG)
 
 - **`Resumen` (Subopción 1):** Muestra un resumen de todos los tickers almacenados en la base de datos.
+
 ![Resumen de Tickers](assets/07_resumen.PNG)
 
 
 - **`Gráfico de Ticker` (Subopción 2):** Permite visualizar gráficos de velas para un ticker específico.
-![Gráfico de Ticker](assets/08_grafico.PNG)
+
+![Grafico de Ticker](assets/08_grafico.PNG)
 
 
 - **`Parámetros Técnicos` (Subopción 3):** Muestra parámetros técnicos para un ticker, como precios, volumen y número de transacciones, entre otros datos.
