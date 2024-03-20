@@ -173,13 +173,13 @@ def iniciar_sistema():
 
     while True:
         print("\nITBA - Certificacion Profesional en Python - PROYECTO FINAL")
-        print("Alumno: Gonzalo Montalvo.")
+        print(f"Autor: Gonzalo Martin Montalvo. (C) 2023 - {get_anio()}.")
         print("\nMenú Principal:")
         print("Polygon.io no permite visualizaciones del dia.")
         print("    1. Actualización de datos")
         print("    2. Visualización de datos")
         print("    3. Salir")
-        opcion = input("    Seleccione una opción: ")
+        opcion = input("\n    Seleccione una opción: ")
 
         if opcion == '1':
             ticker = input("    Ingrese ticker a consultar: ").upper()
