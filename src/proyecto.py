@@ -204,7 +204,8 @@ def iniciar_sistema():
             else:
                 print("        Opción inválida.")
         elif opcion == '3':
-            print("    Gracias por usar nuestro servicio. Bye!")
+            print("    Gracias por usar nuestro servicio.")
+            print("    Bye Bye!")
             break
         else:
             print("    Opción inválida.")
