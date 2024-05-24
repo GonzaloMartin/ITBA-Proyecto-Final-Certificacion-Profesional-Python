@@ -80,7 +80,7 @@ Ejemplo:
 >>> Ingrese el ticker a graficar:
 AAL
 ```
-El estilo de gráfico elegido es el gráfico de velas.
+El estilo de gráfico elegido es el gráfico de velas (candle graph).
 
 ## Extras
 
