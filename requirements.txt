@@ -1,8 +1,8 @@
-pytest~=8.2.1
-requests~=2.32.2
-urllib3~=2.2.1
-matplotlib~=3.9.0
+pytest~=8.3.4
+requests~=2.32.3
+urllib3~=2.3.0
+matplotlib~=3.10.0
 mplfinance==0.12.10b0
-pandas~=2.2.2
-cryptography~=42.0.7
-pyarrow~=16.1.0
+pandas~=2.2.3
+cryptography~=44.0.1
+pyarrow~=19.0.1
